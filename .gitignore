@@ -34,3 +34,6 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Mac OS X config files
+.DS_Store
