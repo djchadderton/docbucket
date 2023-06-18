@@ -4,8 +4,7 @@
 
 <div id="folders">
   <% @folders.each do |folder| %>
-    <%= render folder %>
-    <%= render folder.posts %>
+    <p><%= link_to folder.name, folder %></p>
   <% end %>
 </div>
 
