@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @folder %>
+<h1><%= @folder.name %></h1>
 
 <% @folder.posts.each do |post| %>
   <p><%= link_to post.title, post %></p>
