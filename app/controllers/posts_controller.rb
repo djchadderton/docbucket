@@ -27,9 +27,11 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("form", partial: "posts/form", locals: {post: Post.new}) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("form", partial: "posts/form", locals: {post: @post}) }
       end
     end
   end
