@@ -1,9 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Folders</h1>
-
-<div id="folders">
+<div id="folders" style="flex-grow:1;">
+  <h1>Folders</h1>
   <%= render @folders %>
+  <%= link_to "✚", new_folder_path %>
 </div>
 
-<%= link_to "New folder", new_folder_path %>
+<div id="posts" style="flex-grow:1;">
+  <h1>Posts</h1>
+</div>
+
+<div id="post" style="flex-grow:4;">
+  <h1>Post</h1>
+</div>
+

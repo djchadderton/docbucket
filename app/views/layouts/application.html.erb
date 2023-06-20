@@ -12,6 +12,8 @@
 
   <body>
     <header><%= button_to "log in as admin", login_path %></header>
-    <%= yield %>
+    <main style="display:flex;">
+      <%= yield %>
+    </main>
   </body>
 </html>
