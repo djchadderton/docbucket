@@ -1,3 +1,3 @@
 <div id="<%= dom_id folder %>">
-  <p><%= link_to folder.name, folder %></p>
+  <p><%= link_to folder.name, folder, data: {turbo_frame: "posts"} %></p>
 </div>

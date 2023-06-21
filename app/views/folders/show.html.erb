@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<turbo-frame id="posts">
+  <h1><%= @folder.name %></h1>
 
-<h1><%= @folder.name %></h1>
-
-<% @folder.posts.each do |post| %>
-  <p><%= link_to post.title, post %></p>
-<% end %>
+  <% @folder.posts.each do |post| %>
+    <p><%= link_to post.title, post, data: {turbo_frame: "post"} %></p>
+  <% end %>
+</turbo-frame>
 
 <div>
   <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
