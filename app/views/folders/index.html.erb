@@ -2,9 +2,7 @@
 
 <div class="column-display">
   <turbo-frame id="folders">
-    <h1>Folders</h1>
-    <%= render @folders %>
-    <%= link_to "✚", new_folder_path %>
+    <%= render "folders" %>
   </turbo-frame>
 
   <turbo-frame id="posts">

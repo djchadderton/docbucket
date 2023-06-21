@@ -1,9 +1,4 @@
-<h1>New folder</h1>
-
-<%= render "form", folder: @folder %>
-
-<br>
-
-<div>
-  <%= link_to "Back to folders", folders_path %>
-</div>
+<turbo-frame id="folders">
+  <h1>New folder</h1>
+  <%= render "form", folder: @folder %>
+</turbo-frame>
