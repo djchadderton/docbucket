@@ -1,15 +1,4 @@
 <div id="<%= dom_id post %>">
-  <p>
-    <strong>Folder:</strong>
-    <%= link_to post.folder.name, post.folder %>
-  </p>
-
   <h2><%= post.title %></h2>
-
   <%= post.body %>
-
-  <p>
-    <strong>Author:</strong>
-    <%= post.user.name %>
-  </p>
 </div>
