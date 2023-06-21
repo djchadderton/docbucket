@@ -1,5 +1,8 @@
 <turbo-frame id="post">
-  <%= render @post %>
+  <div id="<%= dom_id @post %>">
+    <h2><%= @post.title %></h2>
+    <%= @post.body %>
+  </div>
   <%= link_to "Edit this post", edit_post_path(@post) %>
   <%= button_to "Destroy this post", @post, method: :delete %>
 </turbo-frame>
