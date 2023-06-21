@@ -1,5 +1,5 @@
 class FoldersController < ApplicationController
-  before_action :set_folder, only: %i[ show edit update destroy ]
+  before_action :set_folder, only: %i[show edit update destroy]
 
   # GET /folders or /folders.json
   def index
@@ -60,13 +60,14 @@ class FoldersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_folder
-      @folder = Folder.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def folder_params
-      params.require(:folder).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_folder
+    @folder = Folder.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def folder_params
+    params.require(:folder).permit(:name)
+  end
 end
