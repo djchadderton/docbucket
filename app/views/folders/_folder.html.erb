@@ -1,4 +1,7 @@
 <div id="<%= dom_id folder %>" style="display:flex;justify-content:space-between;">
-  <%= link_to folder.name, folder, data: {turbo_stream: "true"} %>
+  <span>
+    <%= link_to folder.name, folder, data: {turbo_stream: "true"} %>
+    (<%= folder.posts_count %>)
+  </span>
   <%= button_to 'Destroy', folder, method: :delete, data: {turbo_confirm: 'Are you sure?'} %>
 </div>

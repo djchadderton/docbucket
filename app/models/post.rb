@@ -21,6 +21,6 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :folder
+  belongs_to :folder, counter_cache: true
   has_rich_text :body
 end

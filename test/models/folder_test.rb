@@ -2,10 +2,11 @@
 #
 # Table name: folders
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  name        :string
+#  posts_count :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 require "test_helper"
 
