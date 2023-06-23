@@ -8,6 +8,10 @@ class FoldersController < ApplicationController
 
   # GET /folders/1 or /folders/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   # GET /folders/new
