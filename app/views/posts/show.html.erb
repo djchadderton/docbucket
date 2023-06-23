@@ -3,6 +3,6 @@
     <h2><%= @post.title %></h2>
     <%= @post.body %>
   </div>
-  <%= link_to "Edit this post", edit_post_path(@post) %>
+  <%= link_to "Edit this post", edit_post_path(@post), data: {turbo_frame: "modal"} %>
   <%= button_to "Destroy this post", @post, method: :delete %>
 </turbo-frame>

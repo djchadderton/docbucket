@@ -1,1 +1,3 @@
+<%= turbo_stream.update "modal", "" %>
+<% @folders = Folder.all %>
 <%= turbo_stream.update "folders", partial: "folders" %>

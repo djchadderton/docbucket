@@ -1,1 +1,4 @@
-<%= turbo_stream.replace "form", @post %>
+<%= turbo_stream.update "modal", "" %>
+<%= turbo_stream.replace "post", template: "posts/show" %>
+<% @folder = @post.folder %>
+<%= turbo_stream.replace "posts", template: "folders/show" %>
