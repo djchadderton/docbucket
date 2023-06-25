@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Folder.create(name: "Inbox")
-User.create(name: "Admin", username: "admin")
+Folder.find_or_create(name: "Inbox")
+User.find_or_create(name: "Admin", username: "admin", email: "admin@example.com")
