@@ -1,15 +1,9 @@
 // Entry point for your Sass build
-@import 'actiontext.css';
-@import 'simple.css';
-
-.column-display {
-  display: flex;
-  turbo-frame {
-    padding: 10px;
-    border: 1px solid black;
-    flex: 0 0 200px;
-    &#post {
-      flex: 1 1 auto;
-    }
-  }
-}
+@import "variables.sass.scss";
+@import "actiontext.css";
+@import "nav.sass.scss";
+@import "headers.sass.scss";
+@import "links_and_buttons.sass.scss";
+@import "tables.sass.scss";
+@import "defaults.sass.scss";
+@import "column_layout.sass.scss";
