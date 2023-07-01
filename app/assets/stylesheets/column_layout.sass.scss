@@ -1,11 +1,9 @@
 .column-display {
-  display: flex;
-  turbo-frame {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 2fr;
+  > * {
     padding: 10px;
     border: 1px solid black;
-    flex: 0 0 200px;
-    &#post {
-      flex: 1 1 auto;
-    }
   }
 }
