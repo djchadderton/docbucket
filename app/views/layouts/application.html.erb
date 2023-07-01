@@ -11,7 +11,10 @@
   </head>
 
   <body>
-    <header><%= button_to "log in as admin", "sessions/create" %></header>
+    <header>
+      <h1>Docbucket</h1>
+      <%= button_to "log in as admin", "sessions/create" %>
+    </header>
     <main>
       <%= yield %>
     </main>
