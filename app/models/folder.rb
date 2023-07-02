@@ -12,4 +12,6 @@ class Folder < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+
+  broadcasts_to ->(f) { "folders" }, inserts_by: :append, target: "folders"
 end

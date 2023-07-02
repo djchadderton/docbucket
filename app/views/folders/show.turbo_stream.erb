@@ -1,6 +1,5 @@
 <%= turbo_stream.update "posts", partial: "posts/posts" %>
 <% @post = @folder.posts&.first %>
-<% print @post %>
 <% if @post %>
   <%= turbo_stream.replace "post", template: "posts/show" %>
 <% else %>

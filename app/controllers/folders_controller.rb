@@ -31,7 +31,7 @@ class FoldersController < ApplicationController
       if @folder.save
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully created." }
         format.json { render :show, status: :created, location: @folder }
-        format.turbo_stream
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", "") }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @folder.errors, status: :unprocessable_entity }
