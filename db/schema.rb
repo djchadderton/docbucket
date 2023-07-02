@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_135116) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "posts_count", default: 1, null: false
+    t.integer "posts_count", default: 0, null: false
   end
 
   create_table "posts", force: :cascade do |t|
