@@ -1,0 +1,39 @@
+/* Sizes that the rest of our system will be based on */
+$ft-screen-width: 1440;
+$ft-body: 16;
+$ft-body-min: 1rem;
+$ft-body-max: 1.375rem;
+$ft-body-vw: calc($ft-body / $ft-screen-width) * 100vw;
+
+/* All of the other sizes we want. The key can be any
+   string, and the value should be in pixels without
+   the unit */
+$ft-sizes: (
+  h1: 30,
+  h2: 26,
+  h3: 20,
+  h4: 16,
+  small: 12,
+  legend: 26,
+  search-icon: 30,
+  listings: 14
+);
+
+/* Mixin to generate the the fluid sizes as
+   custom properties */
+@mixin sizeVar($name, $size) {
+  $proportion: calc($size / $ft-body);
+  $min: $ft-body-min * $proportion;
+  $max: $ft-body-max * $proportion;
+  $vw: $ft-body-vw * $proportion;
+  --ft-size-#{$name}: clamp(#{$min}, #{$vw}, #{$max});
+}
+
+/* Declare the body font size custom property, then use the
+   mixin to generate all of the other custom properties */
+:root {
+  --ft-size-body: clamp(#{$ft-body-min}, #{$ft-body-vw}, #{$ft-body-max});
+  @each $name, $size in $ft-sizes {
+    @include sizeVar($name, $size);
+  }
+}
