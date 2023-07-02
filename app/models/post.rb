@@ -21,7 +21,7 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :folder, counter_cache: true
+  belongs_to :folder, counter_cache: true, touch: true
   has_rich_text :body
 
   broadcasts_to :folder
