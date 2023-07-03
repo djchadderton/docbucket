@@ -23,7 +23,11 @@
 one:
   user: one
   title: MyString
+  user_id: 1
+  folder_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
 
 two:
   user: two
   title: MyString
+  user_id: 1
+  folder_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
