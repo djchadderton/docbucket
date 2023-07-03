@@ -11,7 +11,9 @@
 require "test_helper"
 
 class FolderTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "news attributes should not be empty" do
+    @folder = Folder.new
+    assert @folder.invalid?
+    assert @folder.errors[:name].any?
+  end
 end
