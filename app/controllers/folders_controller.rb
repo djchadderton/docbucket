@@ -1,12 +1,12 @@
 class FoldersController < ApplicationController
   before_action :set_folder, only: %i[show edit update destroy]
 
-  # GET /folders or /folders.json
+  # GET /folders
   def index
     @folders = Folder.all
   end
 
-  # GET /folders/1 or /folders/1.json
+  # GET /folders/1
   def show
     respond_to do |format|
       format.html
@@ -23,42 +23,37 @@ class FoldersController < ApplicationController
   def edit
   end
 
-  # POST /folders or /folders.json
+  # POST /folders
   def create
     @folder = Folder.new(folder_params)
 
     respond_to do |format|
       if @folder.save
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully created." }
-        format.json { render :show, status: :created, location: @folder }
         format.turbo_stream { render turbo_stream: turbo_stream.update("modal", "") }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @folder.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /folders/1 or /folders/1.json
+  # PATCH/PUT /folders/1
   def update
     respond_to do |format|
       if @folder.update(folder_params)
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully updated." }
-        format.json { render :show, status: :ok, location: @folder }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @folder.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /folders/1 or /folders/1.json
+  # DELETE /folders/1
   def destroy
     @folder.destroy
 
     respond_to do |format|
       format.html { redirect_to folders_url, notice: "Folder was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

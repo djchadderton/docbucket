@@ -1,5 +1,2 @@
 <%= turbo_stream.update "modal", "" %>
-<%= turbo_stream.replace "post", template: "posts/show" %>
-<% @folder = @post.folder %>
-<%= turbo_stream.replace "posts", template: "folders/show" %>
-<%= turbo_stream.replace dom_id(@folder), partial: "folders/folder", locals: {folder: @folder} %>
+<%= turbo_stream.replace "post-detail", template: "posts/show" %>

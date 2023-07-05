@@ -1,4 +1,1 @@
-<% @folder = @post.folder %>
-<%= turbo_stream.replace "posts", template: "folders/show" %>
-<%= turbo_stream.update "post", "" %>
-<%= turbo_stream.replace dom_id(@folder), partial: "folders/folder", locals: {folder: @folder} %>
+<%= turbo_stream.update "post-detail", "" %>

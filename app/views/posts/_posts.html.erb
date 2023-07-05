@@ -4,4 +4,7 @@
   Add post
 <% end %>
 
-<%= render @folder.posts %>
+<%= turbo_stream_from @folder %>
+<div id="posts">
+  <%= render @folder.posts %>
+</div>
