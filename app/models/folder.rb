@@ -13,5 +13,5 @@ class Folder < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  broadcasts_to ->(f) { "folders" }, inserts_by: :append, target: "folders"
+  broadcasts_to ->(folder) { :folders }, inserts_by: :append
 end
