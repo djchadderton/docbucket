@@ -1,4 +1,4 @@
-<%= form_with(model: post, id: "form") do |form| %>
+<%= form_with(model: post, id: "form", builder: RhinoFormBuilder) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.rich_text_area :body %>
+    <%= form.rhino_editor :body %>
   </div>
 
   <div>
