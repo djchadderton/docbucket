@@ -37,3 +37,6 @@
 
 # Mac OS X config files
 .DS_Store
+
+# Redis
+dump.rdb
