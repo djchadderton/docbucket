@@ -5,10 +5,10 @@ class FoldersControllerTest < ActionDispatch::IntegrationTest
     @folder = folders(:one)
   end
 
-  # test "should get index" do
-  #   get folders_url
-  #   assert_response :success
-  # end
+  test "should get index" do
+    get folders_url
+    assert_response :success
+  end
 
   # test "should get new" do
   #   get new_folder_url
