@@ -1,0 +1,15 @@
+<div class="column-display">
+  <turbo-frame id="folder-list">
+    <%= render template: "folders/index" %>
+  </turbo-frame>
+
+  <turbo-frame id="post-list">
+    <h2>Posts</h2>
+  </turbo-frame>
+
+  <turbo-frame id="post-detail">
+    <h2>Post</h2>
+  </turbo-frame>
+</div>
+
+<%= turbo_frame_tag "modal" %>
