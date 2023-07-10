@@ -42,6 +42,7 @@ class FoldersController < ApplicationController
     respond_to do |format|
       if @folder.update(folder_params)
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully updated." }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", "") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

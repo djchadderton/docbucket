@@ -1,10 +1,3 @@
-<h2>Editing folder</h2>
-
-<%= render "form", folder: @folder %>
-
-<br>
-
-<div>
-  <%= link_to "Show this folder", @folder %> |
-  <%= link_to "Back to folders", folders_path %>
-</div>
+<%= render "shared/modal_form", modal_title: "Edit folder" do %>
+  <%= render "form", folder: @folder %>
+<% end %>

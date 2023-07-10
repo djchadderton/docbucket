@@ -1,5 +1,5 @@
-<h2>Editing post</h2>
-
 <turbo-frame id="modal">
-  <%= render "form", post: @post %>
+  <%= render "shared/modal_form", modal_title: "Edit post" do %>
+    <%= render "form", post: @post %>
+  <% end %>
 </turbo-frame>
