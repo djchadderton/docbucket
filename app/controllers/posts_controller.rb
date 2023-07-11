@@ -21,7 +21,10 @@ class PostsController < ApplicationController
 
   # POST/TURBO_STREAM /posts
   def create
+    return if cancelled
+
     @post = Post.new(user: current_user, **post_params)
+    @folder = @post.folder
 
     respond_to do |format|
       if @post.save
@@ -36,6 +39,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT/TURBO_STREAM /posts/1
   def update
+    return if cancelled
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
@@ -67,5 +72,9 @@ class PostsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(:user_id, :title, :body, :folder_id)
+  end
+
+  def cancelled
+    params[:commit] == "Cancel"
   end
 end
