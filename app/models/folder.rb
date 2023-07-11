@@ -14,4 +14,6 @@ class Folder < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   broadcasts_to ->(folder) { :folders }, inserts_by: :append, target: "folders"
+
+  default_scope { order(id: :asc) }
 end
