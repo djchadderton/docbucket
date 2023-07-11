@@ -55,6 +55,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to folders_url, notice: "Folder was successfully destroyed." }
+      format.turbo_stream
     end
   end
 
