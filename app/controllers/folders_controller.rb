@@ -8,6 +8,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/1
   def show
+    @posts = @folder.posts
     respond_to do |format|
       format.html
       format.turbo_stream
@@ -30,7 +31,7 @@ class FoldersController < ApplicationController
     respond_to do |format|
       if @folder.save
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully created." }
-        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", "") }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
       end
