@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(folder) do %>
-  <div>
+  <div style="padding:5px;border: 1px black solid;margin:2px;">
     <%= link_to folder.name, folder, data: {turbo_stream: "true"} %>
     (<%= folder.posts_count %>)
   </div>
