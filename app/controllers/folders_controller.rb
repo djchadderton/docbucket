@@ -27,6 +27,8 @@ class FoldersController < ApplicationController
 
   # POST /folders
   def create
+    return if cancelled
+
     @folder = Folder.new(folder_params)
 
     respond_to do |format|
@@ -41,10 +43,12 @@ class FoldersController < ApplicationController
 
   # PATCH/PUT /folders/1
   def update
+    return if cancelled
+
     respond_to do |format|
       if @folder.update(folder_params)
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully updated." }
-        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", "") }
+        format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -71,5 +75,9 @@ class FoldersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def folder_params
     params.require(:folder).permit(:name)
+  end
+
+  def cancelled
+    params[:commit] == "Cancel"
   end
 end
