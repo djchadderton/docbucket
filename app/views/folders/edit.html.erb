@@ -1,3 +1,5 @@
-<%= render "shared/modal_form", modal_title: "Edit folder" do %>
-  <%= render "form", folder: @folder %>
-<% end %>
+<turbo-frame id="modal">
+  <%= render "shared/modal_form", modal_title: "Edit folder" do %>
+    <%= render "form", folder: @folder %>
+  <% end %>
+</turbo-frame>
