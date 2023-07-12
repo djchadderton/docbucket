@@ -26,5 +26,7 @@ class Post < ApplicationRecord
 
   broadcasts_to :folder
 
+  validates :title, presence: true
+
   default_scope { order(created_at: :desc) }
 end
