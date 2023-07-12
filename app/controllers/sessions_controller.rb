@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    session[:user_id] = 1
+    session[:user_id] = User.first.id
   end
 
   def destroy

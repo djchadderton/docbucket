@@ -9,6 +9,7 @@ class FoldersController < ApplicationController
   # GET /folders/1
   def show
     @posts = @folder.posts
+    @post = @posts.first
     respond_to do |format|
       format.html
       format.turbo_stream

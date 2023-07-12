@@ -12,7 +12,7 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  test "news attributes should not be empty" do
+  test "user attributes should not be empty" do
     @user = User.new
     assert @user.invalid?
     assert @user.errors[:username].any?
