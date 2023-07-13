@@ -43,6 +43,7 @@ class FoldersController < ApplicationController
 
   # PATCH/PUT /folders/1
   def update
+    @posts = @folder.posts
     return if cancelled
 
     respond_to do |format|
