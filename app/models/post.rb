@@ -24,7 +24,7 @@ class Post < ApplicationRecord
   belongs_to :folder, counter_cache: true, touch: true
   has_rich_text :body
 
-  broadcasts_to :folder
+  broadcasts_to :folder, inserts_by: :prepend
 
   validates :title, presence: true
 
