@@ -1,7 +1,7 @@
 class FolderMailbox < ApplicationMailbox
   MATCHER = /^folder-(\d+)-(\d+)@/i
   def process
-    folder.posts.create(title: mail.subject, user: sender, body: body)
+    folder.posts.create(title: mail.subject, user: sender, body: post_body)
     Folder.reset_counters(folder_id, :posts)
   end
 
@@ -10,14 +10,26 @@ class FolderMailbox < ApplicationMailbox
   end
 
   def folder_id
-    mail.recipients.find { |recipient| MATCHER.match?(recipient) }[MATCHER, 1]
+    recipients[MATCHER, 1]
   end
 
   def user_id
-    mail.recipients.find { |recipient| MATCHER.match?(recipient) }[MATCHER, 2]
+    recipients[MATCHER, 2]
   end
 
   def sender
     User.find(user_id)
+  end
+
+  def from
+    @from ||= mail.from_address
+  end
+
+  def post_body
+    "From: #{from}\n" + body
+  end
+
+  def recipients
+    @recipients ||= (mail.recipients + Array(mail[:resent_to]).map(&:to_s)).find { |recipient| MATCHER.match?(recipient) }
   end
 end
