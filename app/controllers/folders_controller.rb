@@ -27,8 +27,6 @@ class FoldersController < ApplicationController
 
   # POST /folders
   def create
-    return if cancelled
-
     @folder = Folder.new(folder_params)
 
     respond_to do |format|
@@ -44,7 +42,6 @@ class FoldersController < ApplicationController
   # PATCH/PUT /folders/1
   def update
     @posts = @folder.posts
-    return if cancelled
 
     respond_to do |format|
       if @folder.update(folder_params)
@@ -76,9 +73,5 @@ class FoldersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def folder_params
     params.require(:folder).permit(:name)
-  end
-
-  def cancelled
-    params[:commit] == "Cancel"
   end
 end

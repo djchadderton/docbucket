@@ -1,8 +1,18 @@
-<div aria-labelledby="modal-title" aria-modal="true"  role="dialog" class="modal-form">
+<%= tag.div(
+  aria: {labelledby: "modal-title", modal: "true"},
+  role: "dialog",
+  class: "modal-form",
+  data: {
+    controller: "turbo-modal",
+    action: "turbo:submit-end->turbo-modal#submitEnd keydown.esc@window->turbo-modal#hideModal click@window->turbo-modal#mouseCancel"
+    }) do %>
   <div class="modal-screen-background">
-    <div class="modal-form-background">
+    <div class="modal-form-background" data-turbo-modal-target="modal">
       <h2 id="modal-title"><%= modal_title %></h2>
       <%= yield %>
+      <%= button_tag "Cancel",
+        data: { action: "turbo-modal#hideModal" },
+        type: "button" %>
     </div>
   </div>
-</div>
+<% end %>
