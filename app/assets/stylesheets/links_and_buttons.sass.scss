@@ -22,6 +22,9 @@ input[type="button"] {
   padding: 0.7rem 0.9rem;
   margin: 0.5rem 0;
   transition: 0.4s;
+  &.btn-warn {
+    background-color: rgb(194, 33, 33);
+  }
 }
 
 button path {
