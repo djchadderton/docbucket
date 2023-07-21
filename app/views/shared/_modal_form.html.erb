@@ -8,6 +8,11 @@
     }) do %>
   <div class="modal-screen-background">
     <div class="modal-form-background" data-turbo-modal-target="modal">
+      <%= button_tag "&times;".html_safe,
+        data: { action: "turbo-modal#hideModal" },
+        aria_label: "Close",
+        tabindex: "-1",
+        type: "button", style: "background-color:transparent;border:none;float:right;color:black;" %>
       <h2 id="modal-title"><%= modal_title %></h2>
       <%= yield %>
       <%= button_tag "Cancel",
