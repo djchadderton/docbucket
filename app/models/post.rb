@@ -25,6 +25,7 @@ class Post < ApplicationRecord
   has_rich_text :body
 
   broadcasts_to :folder, inserts_by: :prepend
+  broadcasts_to ->(post) { :posts }
 
   validates :title, presence: true
 

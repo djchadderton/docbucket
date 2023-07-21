@@ -27,9 +27,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.turbo_stream
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("post-detail", template: "posts/show") }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", template: "posts/new") }
       end
     end
   end
@@ -39,9 +40,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
-        format.turbo_stream
+        format.turbo_stream { render turbos_stream: turbo_stream.replace("post-detail", template: "posts/show") }
       else
         format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", template: "posts/edit") }
       end
     end
   end
@@ -52,7 +54,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.turbo_stream
+      format.turbo_stream { render turbo_stream: turbo_stream.update("post-detail", "") }
     end
   end
 

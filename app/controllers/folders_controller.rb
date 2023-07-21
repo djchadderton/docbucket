@@ -32,9 +32,10 @@ class FoldersController < ApplicationController
     respond_to do |format|
       if @folder.save
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully created." }
-        format.turbo_stream
+        format.turbo_stream { render turbo_stream: turbo_stream.update("post-list", template: "folders/show") }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", template: "folders/new") }
       end
     end
   end
@@ -49,6 +50,7 @@ class FoldersController < ApplicationController
         format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal", template: "folders/edit") }
       end
     end
   end
