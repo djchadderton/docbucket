@@ -35,11 +35,6 @@ a.button:visited {
   text-decoration: none;
 }
 
-button path,
-a.button path {
-  fill: var(--bg);
-}
-
 button[disabled],
 [role="button"][aria-disabled="true"],
 input[type="submit"][disabled],
