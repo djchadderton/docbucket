@@ -8,30 +8,38 @@ a:hover {
   text-decoration: none;
 }
 
-a button,
 button,
 [role="button"],
 input[type="submit"],
 input[type="reset"],
-input[type="button"] {
+input[type="button"],
+.button {
   border: none;
   border-radius: 5px;
   background: var(--accent);
   font-size: 1rem;
   color: var(--bg);
   padding: 0.7rem 0.9rem;
-  margin: 0.5rem 0;
   transition: 0.4s;
+  path {
+    fill: var(--bg);
+  }
   &.btn-warn {
-    background-color: rgb(194, 33, 33);
+    background-color: var(--warn);
   }
 }
 
-button path {
+a.button,
+a.button:visited {
+  color: var(--bg);
+  text-decoration: none;
+}
+
+button path,
+a.button path {
   fill: var(--bg);
 }
 
-a button[disabled],
 button[disabled],
 [role="button"][aria-disabled="true"],
 input[type="submit"][disabled],
@@ -56,6 +64,7 @@ input[type="range"] {
   padding: 0;
 }
 
+a.button:hover,
 button:focus,
 button:enabled:hover,
 [role="button"]:focus,
@@ -70,6 +79,10 @@ input[type="checkbox"]:focus,
 input[type="checkbox"]:enabled:hover,
 input[type="radio"]:focus,
 input[type="radio"]:enabled:hover {
-  filter: brightness(1.4);
+  filter: brightness(1.2);
   cursor: pointer;
+}
+
+.button-to {
+  display: inline;
 }
