@@ -1,4 +1,5 @@
-<%= tag.div id: dom_id(folder), style: "padding:5px;border: 1px black solid;margin:2px;" do %>
-  <%= link_to folder.name, folder, data: {turbo_stream: "true"} %>
-  (<%= folder.posts_count %>)
+<%= tag.div id: dom_id(folder), class: "listing" do %>
+  <%= link_to folder, data: {turbo_stream: "true"} do %>
+    <%= folder.name %> (<%= folder.posts_count %>)
+  <% end %>
 <% end %>

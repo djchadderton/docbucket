@@ -1,3 +1,7 @@
-<div id="<%= dom_id post %>">
-  <p><%= link_to post.title, post, data: {turbo_frame: "post-detail"} %></p>
+<div id="<%= dom_id post %>", class="listing">
+  <%= link_to post, data: {turbo_frame: "post-detail"} do %>
+    <h3><%= post.title %></h3>
+    <p><%= post.body.to_plain_text.truncate(27, separator: ' ') %></p>
+    <p><small><%= Time.now - post.created_at < 2.days ? "#{time_ago_in_words(post.created_at)} ago" : post.created_at.strftime("%d %B %Y") %></small></p>
+  <% end %>
 </div>

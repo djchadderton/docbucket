@@ -3,11 +3,38 @@
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr 2fr;
   > * {
-    padding: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--accent-bg);
   }
 }
 
 #folders {
   margin-top: 20px;
+}
+
+.listing {
+  margin: 5px 0;
+  a {
+    display: block;
+    background-color: var(--accent-bg);
+    text-decoration: none;
+    padding: 10px;
+    color: var(--text);
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.column-header {
+  background-color: var(--accent-bg);
+  padding: 1em;
+  border-bottom: 1px solid var(--accent);
+  h2,
+  & h3 {
+    margin: 0;
+  }
+}
+
+.column-content {
+  padding: 10px;
 }
