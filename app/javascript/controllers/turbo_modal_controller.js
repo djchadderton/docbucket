@@ -6,6 +6,7 @@ export default class extends Controller {
 
   hideModal() {
     this.element.remove()
+    this.modalTurboFrame.src = null
   }
 
   mouseCancel(event) {
@@ -18,5 +19,9 @@ export default class extends Controller {
     if (event.detail.success) {
       this.hideModal()
     }
+  }
+
+  get modalTurboFrame() {
+    return document.querySelector("turbo-frame[id='modal']")
   }
 }
