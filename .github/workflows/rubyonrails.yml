@@ -41,7 +41,7 @@ jobs:
         run: bin/rails assets:precompile
       # Add or replace test runners here
       - name: Run tests
-        run: bin/rake
+        run: bin/rails
 
   lint:
     runs-on: ubuntu-latest
@@ -53,4 +53,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Lint Ruby files
-        run: rake standard:fix
+        run: bin/rails standard:fix
