@@ -1,11 +1,11 @@
 // Entry point for your Sass build
-@import "fluid.sass.scss";
-@import "variables.sass.scss";
-// @import "actiontext.css";
-// @import "nav.sass.scss";
-@import "links_and_buttons.sass.scss";
-@import "modal_form.sass.scss";
-@import "tables.sass.scss";
-@import "defaults.sass.scss";
-@import "column_layout.sass.scss";
-@import "rhino-editor/exports/styles/trix";
+@use "fluid.sass.scss";
+@use "variables.sass.scss";
+// @use "actiontext.css";
+// @use "nav.sass.scss";
+@use "links_and_buttons.sass.scss";
+@use "modal_form.sass.scss";
+@use "tables.sass.scss";
+@use "defaults.sass.scss";
+@use "column_layout.sass.scss";
+@use "rhino-editor/exports/styles/trix";
