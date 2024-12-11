@@ -3,11 +3,11 @@
   "private": "true",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
-    "@hotwired/turbo-rails": "^7.3.0",
-    "@rails/actiontext": "^7.0.5",
-    "esbuild": "^0.18.4",
-    "rhino-editor": "^0.6.1",
-    "sass": "^1.63.4"
+    "@hotwired/turbo-rails": "^8.0.0",
+    "@rails/actiontext": "^8.0.0",
+    "esbuild": "^0.24.4",
+    "rhino-editor": "^0.14.2",
+    "sass": "^1.82.2"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
