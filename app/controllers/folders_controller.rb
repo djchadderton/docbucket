@@ -1,4 +1,5 @@
 class FoldersController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :set_folder, only: %i[show edit update destroy]
 
   # GET /folders
@@ -12,7 +13,12 @@ class FoldersController < ApplicationController
     @post = @posts.first
     respond_to do |format|
       format.html
-      format.turbo_stream
+      format.turbo_stream {
+        render turbo_stream: [
+          turbo_stream.update("post-list", template: "folders/show"),
+          @post ? turbo_stream.replace("post-detail", template: "posts/show") : turbo_stream.update("post-detail", "")
+        ]
+      }
     end
   end
 
@@ -47,7 +53,12 @@ class FoldersController < ApplicationController
     respond_to do |format|
       if @folder.update(folder_params)
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully updated." }
-        format.turbo_stream
+        format.turbo_stream {
+          render turbo_stream: [
+            turbo_stream.update("post-list", template: "folders/show"),
+            turbo_stream.replace(dom_id(@folder, :header), partial: "posts/post_header", locals: {folder: @folder})
+          ]
+        }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.turbo_stream { render turbo_stream: turbo_stream.update("modal", template: "folders/edit") }
@@ -61,7 +72,12 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to folders_url, notice: "Folder was successfully destroyed." }
-      format.turbo_stream
+      format.turbo_stream {
+        render turbo_stream: [
+          turbo_stream.update("post-detail", ""),
+          turbo_stream.update("post-list", "")
+        ]
+      }
     end
   end
 
