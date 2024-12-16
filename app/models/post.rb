@@ -25,7 +25,7 @@ class Post < ApplicationRecord
   has_rich_text :body
 
   broadcasts_to :folder, inserts_by: :prepend
-  broadcasts_to ->(post) { :posts }
+  after_update -> { broadcast_replace_to :folder, partial: "folders/folder", locals: {folder: folder} }
 
   validates :title, presence: true
 
